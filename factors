@@ -14,10 +14,48 @@ def print_factors(value):
         print("{}={}*{}".format(value, value // number_sqrt_int,
               number_sqrt_int))
         return
+
     if value % 2 == 0:
         print("{}={}*{}".format(value, value // 2, 2))
-        
-    for i in range(3, number_sqrt_int, 2):
+        return
+
+    if value % 3 == 0:
+        print("{}={}*{}".format(value, value // 3, 3))
+        return
+
+    if value % 5 == 0:
+        print("{}={}*{}".format(value, value // 5, 5))
+        return
+
+    if value % 7 == 0:
+        print("{}={}*{}".format(value, value // 7, 7))
+        return
+
+    if value % 11 == 0:
+        print("{}={}*{}".format(value, value // 11, 11))
+        return
+
+    if value % 13 == 0:
+        print("{}={}*{}".format(value, value // 13, 13))
+        return
+
+    if value % 17 == 0:
+        print("{}={}*{}".format(value, value // 17, 17))
+        return
+
+    if value % 19 == 0:
+        print("{}={}*{}".format(value, value // 19, 19))
+        return
+
+    if value % 23 == 0:
+        print("{}={}*{}".format(value, value // 23, 23))
+        return
+
+    if value % 29 == 0:
+        print("{}={}*{}".format(value, value // 29, 29))
+        return
+
+    for i in range(31, number_sqrt_int):
         if value % i == 0:
             print("{}={}*{}".format(value, value // i, i))
             break
