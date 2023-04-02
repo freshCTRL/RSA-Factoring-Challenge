@@ -14,8 +14,10 @@ def print_factors(value):
         print("{}={}*{}".format(value, value // number_sqrt_int,
               number_sqrt_int))
         return
-
-    for i in range(2, number_sqrt_int):
+    if value % 2 == 0:
+        print("{}={}*{}".format(value, value // 2, 2))
+        
+    for i in range(3, number_sqrt_int, 2):
         if value % i == 0:
             print("{}={}*{}".format(value, value // i, i))
             break
