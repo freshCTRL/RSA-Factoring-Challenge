@@ -1,5 +1,5 @@
 #!/bin/bash
-#  a script that factorize as many numbers as possible
+# a script that factorize as many numbers as possible
 # into a product of two smaller numbers.
 
 file_name=$1
@@ -8,9 +8,10 @@ file_name=$1
 function getFactor
 {
   number=$1
-    for (( i=2; i<=(number / 2); i++ ));
+  num_sqrt=$(echo "sqrt($number)" | bc)
+    for (( i=2; i<=num_sqrt; i++ ));
       do
-        if [[ $(expr "$number" % "$i") -eq "0" ]]; then
+        if [[ $((number % i)) -eq "0" ]]; then
           num2=$((number / i))
           echo "$number=$num2*$i"
           break
@@ -22,3 +23,4 @@ while IFS= read -r line;
 do
     getFactor "$line"
 done < "$file_name"
+
