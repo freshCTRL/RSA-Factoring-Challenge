@@ -8,8 +8,14 @@ from sys import argv
 
 
 def print_factors(value):
-    number_sqrt = int(math.sqrt(value))
-    for i in range(2, number_sqrt):
+    number_sqrt = math.sqrt(value)
+    number_sqrt_int = int(number_sqrt)
+    if number_sqrt == number_sqrt_int:
+        print("{}={}*{}".format(value, value // number_sqrt_int,
+              number_sqrt_int))
+        return
+
+    for i in range(2, number_sqrt_int):
         if value % i == 0:
             print("{}={}*{}".format(value, value // i, i))
             break
@@ -31,4 +37,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
