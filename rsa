@@ -1,26 +1,31 @@
 #!/usr/bin/python3
 
 # a script that factorize as many numbers as possible
-# into a product of two smaller numbers.
+# into a product of two prime numbers.
 
 import math
 from sys import argv
 
 
+def is_prime(num):
+    if num < 2:
+        return False
+    for i in range(2, int(num ** 0.5) + 1):
+        if num % i == 0:
+            return False
+    return True
+
+
 def print_factors(value):
     number_sqrt = math.sqrt(value)
     number_sqrt_int = int(number_sqrt)
-    if number_sqrt == number_sqrt_int:
-        print("{}={}*{}".format(value, value // number_sqrt_int,
-              number_sqrt_int))
-        return
 
-    if value % 2 == 0:
+    if value % 2 == 0 and is_prime(value // 2):
         print("{}={}*{}".format(value, value // 2, 2))
         return
 
-    for i in range(2, number_sqrt_int):
-        if value % i == 0:
+    for i in range(3, number_sqrt_int, 2):
+        if value % i == 0 and is_prime(value // i) and is_prime(i):
             print("{}={}*{}".format(value, value // i, i))
             break
 
